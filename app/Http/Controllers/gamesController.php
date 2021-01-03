@@ -8,7 +8,7 @@ use App\Models\Game;
 class gamesController extends Controller
 {
     public function index(){
-        $games=Game::all();
+        $games=Game::paginate(10);
         return view('index',['games'=>$games]);
     }
 }

@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\gamesController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
-
-Route::get('/',[gamesController::class,'index'])->name('game.index');
 Auth::routes();
+Route::group(['middleware'=>['auth']],function(){
+    Route::get('/',[gamesController::class,'index'])->name('game.index');
+
+});
+

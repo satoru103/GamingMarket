@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
-
 class cartsController extends Controller
 {
     /**
@@ -15,7 +14,17 @@ class cartsController extends Controller
      */
     public function index()
     {
-        //
+        $carts=Cart::select('cart_items.*','games.game_name','games.price')
+        ->join('games','games.id','=','cart_items.user_id') 
+        ->where('user_id',Auth::id())
+        ->get();
+
+        $sum=0;
+        foreach($carts as $cart){
+            $sum =$cart->price*$cart->quantity;
+        }
+
+        return view('cart.index',['cart'=>$cart,'sum'=>$sum]);
     }
 
     /**
@@ -33,13 +42,14 @@ class cartsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * @param \Illuminate\Support\Facades\DB;
      */
     public function store(Request $request)
     {
         Cart::updateOrCreate([
             'user_id'=>Auth::id(),
-            'item_id'=>$request->post('item_id'),
-            'quantity'=>\DB::row('quantity+'.$request->post('quantity'))
+            'game_id'=>$request->post('game_id'),
+            'quantity'=>\DB::raw('quantity+'.$request->post('quantity'))
         ]);
 
         return redirect()->route('game.index');

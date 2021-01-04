@@ -13,5 +13,5 @@ class Cart extends Model
         'quantity',
         'game_id',
         'user_id',
-    ]
+    ];
 }

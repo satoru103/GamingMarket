@@ -13,6 +13,7 @@ Route::group(['middleware'=>['auth']],function(){
 
 
     // cart
+    Route::get('/cart',[cartsController::class,'index'])->name('cart.index');
     Route::post('/cart/store',[cartsController::class,'store'])->name('cart.store');
 
 });

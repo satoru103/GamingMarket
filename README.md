@@ -13,12 +13,11 @@ GamingMarket
 #### games
 |Column|Type|Options|Index|
 |------|----|-------|-----|
-
-game_name|string
-price|integer
-genre|string
-user_id|integer
-game_item_id|integer
+game_name|string  
+price|integer  
+genre|string  
+user_id|integer  
+game_item_id|integer  
 #### Association
  - belongs_to :user
 

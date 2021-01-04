@@ -3,16 +3,16 @@
 @section('content')
 <div class="container">
     <div class="row">
-    @foreach($games as $game)
         <div class="card">
             <div class="card-header">{{$game->game_name}}</div>
             <div class="card-body">{{$game->price}}</div>
         </div>
-    @endforeach
     </div>
     <div class="row justify-content-center">
-        {{$games->links()}}
+        <button><a href="{{route('game.index')}}">戻る</a></button>
     </div>
 </div>
+
+
 
 @endsection

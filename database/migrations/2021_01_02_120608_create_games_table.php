@@ -19,7 +19,7 @@ class CreateGamesTable extends Migration
             $table->string('genre');
             $table->integer('price');
             $table->integer('user_id');
-            $table->integer('cart_item_id');
+            $table->integer('cart_id');
             $table->timestamps();
         });
     }

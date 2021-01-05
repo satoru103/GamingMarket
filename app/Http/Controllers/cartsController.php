@@ -14,17 +14,16 @@ class cartsController extends Controller
      */
     public function index()
     {
-        $carts=Cart::select('cart_items.*','games.game_name','games.price')
-        ->join('games','games.id','=','cart_items.user_id') 
-        ->where('user_id',Auth::id())
+        $carts=Cart::select('carts.*','games.game_name','games.price')
+        ->join('games','games.id','=','carts.game_id') 
         ->get();
 
         $sum=0;
         foreach($carts as $cart){
-            $sum =$cart->price*$cart->quantity;
+            $sum +=$cart->price*$cart->quantity;
         }
 
-        return view('cart.index',['cart'=>$cart,'sum'=>$sum]);
+        return view('cart.index',['carts'=>$carts,'sum'=>$sum]);
     }
 
     /**

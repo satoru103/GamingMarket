@@ -11,7 +11,24 @@
                 </div>
                 <div class="card-body">
                     <div>{{$cart->price}}円</div>
-                    <div>{{$cart->quantity}}個</div>
+                </div>
+                <div class="form-inline">
+                    <form action="{{route('cart.update',['id'=>$cart->id])}}" method="post">
+                        @csrf  
+                        <select name="quantity" value="{{$cart->quantity}}個">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary">更新</button>
+                    </form>
+                    <form action="{{route('cart.destroy')}}" method="delete">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">削除</button>
+                    </form>
                 </div>    
                 @endforeach
             </div>

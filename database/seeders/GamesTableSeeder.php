@@ -21,14 +21,14 @@ class GamesTableSeeder extends Seeder
                 'price'=>'2980',
                 'genre'=>'スポーツ',
                 'user_id'=>'1',
-                'cart_item_id'=>'1'
+                'cart_id'=>'1'
             ],
             [
                 'game_name'=>'三國無双',
                 'price'=>'7980',
                 'genre'=>'アクション',
                 'user_id'=>'1',
-                'cart_item_id'=>'1'
+                'cart_id'=>'1'
             ],
         ];
         foreach($games_seeds as $game) {

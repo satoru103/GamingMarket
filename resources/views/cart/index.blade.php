@@ -13,7 +13,7 @@
                     <div>{{$cart->price}}円</div>
                 </div>
                 <div class="form-inline">
-                    <form action="{{route('cart.update',['id'=>$cart->id])}}" method="post">
+                    <form action="{{route('cart.update',['cart'=>$cart->id])}}" method="post">
                         @csrf  
                         <select name="quantity" value="{{$cart->quantity}}個">
                             <option>1</option>
@@ -25,7 +25,7 @@
                         </select>
                         <button type="submit" class="btn btn-primary">更新</button>
                     </form>
-                    <form action="{{route('cart.destroy')}}" method="delete">
+                    <form action="{{route('cart.destroy',['cart'=>$cart->id])}}" method="delete">
                         @csrf
                         <button type="submit" class="btn btn-primary">削除</button>
                     </form>

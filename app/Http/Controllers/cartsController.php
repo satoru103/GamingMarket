@@ -87,8 +87,8 @@ class cartsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Cart $cart)
-    {
+    {   
         $cart->delete();
-        return redirect()->route('cart.index');
+        return redirect()->route('game.index');
     }
 }

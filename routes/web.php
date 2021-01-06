@@ -15,8 +15,8 @@ Route::group(['middleware'=>['auth']],function(){
     // cart
     Route::get('/cart',[cartsController::class,'index'])->name('cart.index');
     Route::post('/cart/store',[cartsController::class,'store'])->name('cart.store');
-    Route::delete('/cart/{cart}/delete',[cartsController::class.'destroy'])->name('cart.destroy');
-    Route::post('/cart/{cart}/update',[cartsController::class.'update'])->name('cart.update');
+    Route::delete('/cart/{cart}/delete',[cartsController::class,'destroy'])->name('cart.destroy');
+    Route::post('/cart/{cart}/update',[cartsController::class,'update'])->name('cart.update');
 
 });
 

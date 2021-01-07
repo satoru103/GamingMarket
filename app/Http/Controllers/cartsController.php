@@ -89,6 +89,6 @@ class cartsController extends Controller
     public function destroy(Cart $cart)
     {   
         $cart->delete();
-        return redirect()->route('game.index');
+        return redirect()->route('cart.index');
     }
 }

@@ -14,7 +14,8 @@
                 </div>
                 <div class="form-inline">
                     <form action="{{route('cart.update',['cart'=>$cart->id])}}" method="post">
-                        @csrf  
+                        @csrf
+                        <input type="hidden" value="{{$cart->id}}">
                         <select name="quantity" value="{{$cart->quantity}}個">
                             <option>1</option>
                             <option>2</option>
@@ -25,8 +26,8 @@
                         </select>
                         <button type="submit" class="btn btn-primary">更新</button>
                     </form>
-                    <form action="{{route('cart.destroy',['cart'=>$cart->id])}}" method="delete">
-                        @csrf
+                    <form method="post" action="{{route('cart.destroy',['cart'=>$cart->id])}}">
+                    @csrf
                         <button type="submit" class="btn btn-primary">削除</button>
                     </form>
                 </div>    

@@ -66,17 +66,6 @@ class cartsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cart $cart)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -84,8 +73,10 @@ class cartsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Cart $cart)
-    {
-        //
+    {   
+        $cart->quantity=$request->quantity;
+        $cart->save();
+        return redirect()->route('cart.index');
     }
 
     /**
@@ -95,7 +86,8 @@ class cartsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Cart $cart)
-    {
-        //
+    {   
+        $cart->delete();
+        return redirect()->route('cart.index');
     }
 }

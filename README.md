@@ -21,7 +21,7 @@ game_item_id|integer
 #### Association
  - belongs_to :user
 
-### cart_items
+### carts
 |Column|Type|Options|Index|
 |------|----|-------|-----|
 quantity|integer

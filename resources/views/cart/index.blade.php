@@ -41,7 +41,10 @@
         </div>
         <div class="card">
             <div class="card-header">
-                {{$sum}}円
+                合計{{$sum}}円
+            </div>
+            <div class="card-body">
+                <button><a href="{{route('buy.index',['carts'=>$carts,'sum'=>$sum])}}">購入画面に進む</a></button>
             </div>
         </div>
     </div>

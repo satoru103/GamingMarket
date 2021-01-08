@@ -74,7 +74,6 @@ class cartsController extends Controller
      */
     public function update(Request $request, Cart $cart)
     {   
-        $cart=Cart::find($request->id);
         $cart->quantity=$request->quantity;
         $cart->save();
         return redirect()->route('cart.index');

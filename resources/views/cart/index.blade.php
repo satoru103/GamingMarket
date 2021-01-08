@@ -17,6 +17,11 @@
                         @csrf
                         <input type="hidden" value="{{$cart->id}}">
                         <select name="quantity" value="{{$cart->quantity}}個">
+                        @if($cart->id==$cart->game_id)
+                            <option selected>{{$cart->quantity}}</option>
+                        @else
+                            <option>{{$cart->quantity}}</option>
+                        @endif
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>

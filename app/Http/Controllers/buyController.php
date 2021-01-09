@@ -16,7 +16,7 @@ class buyController extends Controller
         foreach($carts as $cart ){
             $sum +=$cart->quantity*$cart->price;
         }
-        return view('buy.index',['cart'=>$cart,'sum'=>$sum]);
+        return view('buy.index',['carts'=>$carts,'sum'=>$sum]);
     }
 
     public function store(Request $request){
